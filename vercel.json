@@ -2,17 +2,19 @@
   "version": 2,
   "builds": [
     {
-      "src": "dist/src/main.js",
+      "src": "package.json",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "dist/src/main.js"
+      "dest": "/"
     }
   ],
-  "env": {
-    "NODE_ENV": "production"
+  "functions": {
+    "dist/src/main.js": {
+      "runtime": "@vercel/node@18.x"
+    }
   }
 }
